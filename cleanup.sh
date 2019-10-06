@@ -1,0 +1,14 @@
+kubectl delete serviceaccount kong-serviceaccount -n kong
+kubectl delete clusterrolebinding kong-ingress-clusterrole-nisa-binding -n kong
+kubectl delete service kong-proxy -n kong
+kubectl delete -n kong service kong-validation-webhook
+kubectl delete -n kong service postgres
+kubectl delete -n kong deployment ingress-kong
+kubectl delete -n kong statefulset postgres
+kubectl delete -n kong job kong-migrations
+kubectl delete -n kong customresourcedefinitions kongconsumers.configuration.konghq.com
+kubectl delete -n kong customresourcedefinitions kongcredentials.configuration.konghq.com
+kubectl delete -n kong customresourcedefinitions kongingresses.configuration.konghq.com
+kubectl delete -n kong customresourcedefinitions kongplugins.configuration.konghq.com
+kubectl delete -n kong clusterroles kong-ingress-clusterrole
+kubectl delete -n kong configmaps kong-server-blocks
