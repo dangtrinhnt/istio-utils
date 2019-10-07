@@ -1,0 +1,22 @@
+apiVersion: "authentication.istio.io/v1alpha1"
+kind: "Policy"
+metadata:
+  name: posgres-mtls-authn
+  namespace: kong
+spec:
+  targets:
+  - name: posgres     # The name of *your* K8s Service
+  peers:
+  - mtls:
+      mode: STRICT
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: postgres-mtls-dr
+  namespace: kong
+spec:
+  host: posgres     # The name of *your* K8s Service
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
