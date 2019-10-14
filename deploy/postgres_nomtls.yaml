@@ -2,6 +2,7 @@ apiVersion: "authentication.istio.io/v1alpha1"
 kind: "Policy"
 metadata:
   name: postgres-nomtls-authn
+  namespace: kong
 spec:
   targets:
   - name: postgres

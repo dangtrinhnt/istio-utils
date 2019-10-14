@@ -674,6 +674,8 @@ metadata:
 spec:
   template:
     metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
       name: kong-migrations
     spec:
       containers:
